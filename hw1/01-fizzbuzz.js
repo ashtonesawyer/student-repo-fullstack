@@ -28,22 +28,22 @@ Output: ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13"
 **/
 
 function fizzbuzz(n) {
-    let key = []
-    for (let i = 1; i < n+1; i++) {
-        if (i % 15 === 0) {
-            key.push('FizzBuzz')
-        } else if (i % 3 === 0) {
-            key.push('Fizz')
-        } else if (i % 5 === 0) {
-            key.push('Buzz')
-        } else {
-            key.push(i.toString())
-        }
+  let key = [];
+  for (let i = 1; i < n + 1; i++) {
+    if (i % 15 === 0) {
+      key.push("FizzBuzz");
+    } else if (i % 3 === 0) {
+      key.push("Fizz");
+    } else if (i % 5 === 0) {
+      key.push("Buzz");
+    } else {
+      key.push(i.toString());
     }
+  }
 
-    return key
+  return key;
 }
 
-console.log(fizzbuzz(3))
-console.log(fizzbuzz(5))
-console.log(fizzbuzz(15))
+console.log(fizzbuzz(3));
+console.log(fizzbuzz(5));
+console.log(fizzbuzz(15));
