@@ -22,3 +22,14 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
 
 **/
+
+function twosum(nums, target) {
+  for (let i = 0; i < nums.length; i += 1) {
+    const pair = nums.slice(i + 1).indexOf(target - nums[i]);
+    if (pair > -1) return [i, pair + i + 1];
+  }
+}
+
+console.log(twosum([2, 7, 11, 15], 9));
+console.log(twosum([3, 2, 4], 6));
+console.log(twosum([3, 3], 6));
