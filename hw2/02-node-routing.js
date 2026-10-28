@@ -1,4 +1,4 @@
-const http = require("http");
+const http = require('http');
 const port = process.env.PORT || 5001;
 
 // http://localhost:5001/welcome should return a status code 200 with a welcome message of your choice in html format
@@ -12,38 +12,38 @@ const port = process.env.PORT || 5001;
 // For other routes, such as http://localhost:5001/other, this exercise should return a status code 404 with '404 - page not found' in html format
 
 const server = http.createServer((req, res) => {
-  if (req.method === "GET" && req.url === "/") {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.write("Node Routing Exercise");
+  if (req.method === 'GET' && req.url === '/') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('Node Routing Exercise');
     res.end();
-  } else if (req.method === "GET" && req.url === "/welcome") {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.write("<h1>Welcome Friend!</h1>");
+  } else if (req.method === 'GET' && req.url === '/welcome') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<h1>Welcome Friend!</h1>');
     res.end();
-  } else if (req.method === "GET" && req.url === "/redirect") {
-    res.writeHead(302, { Location: "/redirected" });
+  } else if (req.method === 'GET' && req.url === '/redirect') {
+    res.writeHead(302, { Location: '/redirected' });
     res.end();
-  } else if (req.method === "GET" && req.url === "/redirected") {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.write("<p>Thou hast been redirect-ed</p>");
+  } else if (req.method === 'GET' && req.url === '/redirected') {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<p>Thou hast been redirect-ed</p>');
     res.end();
-  } else if (req.method === "GET" && req.url === "/cache") {
+  } else if (req.method === 'GET' && req.url === '/cache') {
     res.writeHead(200, {
-      "Content-Type": "text/html",
-      "Cache-Control": `max-age=${60 * 60 * 24}`,
+      'Content-Type': 'text/html',
+      'Cache-Control': `max-age=${60 * 60 * 24}`,
     });
-    res.write("<p>this resource was cached</p>");
+    res.write('<p>this resource was cached</p>');
     res.end();
-  } else if (req.method === "GET" && req.url === "/cookie") {
+  } else if (req.method === 'GET' && req.url === '/cookie') {
     res.writeHead(200, {
-      "Set-Cookie": "hello=world",
-      "Content-Type": "text/plain",
+      'Set-Cookie': 'hello=world',
+      'Content-Type': 'text/plain',
     });
-    res.write("cookies... yummm");
+    res.write('cookies... yummm');
     res.end();
   } else {
-    res.writeHead(404, { "Content-Type": "text/html" });
-    res.write("<h1>404 - page not found</h1>");
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    res.write('<h1>404 - page not found</h1>');
     res.end();
   }
 });

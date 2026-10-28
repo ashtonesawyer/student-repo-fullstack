@@ -1,5 +1,5 @@
-const express = require("express");
-const path = require("path");
+const express = require('express');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 5001;
@@ -10,17 +10,17 @@ const port = process.env.PORT || 5001;
 
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/form", (_req, res) => {
-  res.status(200).type("html").sendFile(path.join(__dirname, "form.html"));
+app.get('/form', (_req, res) => {
+  res.status(200).type('html').sendFile(path.join(__dirname, 'form.html'));
 });
 
-app.post("/submit", (req, res) => {
+app.post('/submit', (req, res) => {
   const { user, email, comments } = req.body;
   const resp = {
     user,
     email,
     comments,
-    subscribe: req.body.subscribe ? "yes" : "no",
+    subscribe: req.body.subscribe ? 'yes' : 'no',
   };
   res.status(200).json(resp);
 });

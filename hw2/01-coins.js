@@ -2,9 +2,9 @@
 
 // Add your function here
 const calculateChange = function calcMinCoinChange(cost) {
-  if (cost > 100) return "Error: the number is too large";
-  if (cost === 0) return "No change needed";
-  if (cost < 0) return "Error: the number is too small";
+  if (cost > 100) return 'Error: the number is too large';
+  if (cost === 0) return 'No change needed';
+  if (cost < 0) return 'Error: the number is too small';
 
   cost = Math.round(cost * 100); // change to int -- help with rounding errors
 
@@ -27,10 +27,10 @@ const calculateChange = function calcMinCoinChange(cost) {
   return Object.entries(change)
     .filter(([, cnt]) => cnt > 0)
     .map(([coin, cnt]) => {
-      const name = cnt === 1 ? coin : coin === "penny" ? "pennies" : `${coin}s`;
+      const name = cnt === 1 ? coin : coin === 'penny' ? 'pennies' : `${coin}s`;
       return `${cnt} ${name}`;
     })
-    .join(", ");
+    .join(', ');
 };
 
 // Sample test cases
