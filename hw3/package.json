@@ -1,0 +1,10 @@
+{
+  "name": "hw3",
+  "version": "0.0.0",
+  "workspaces": [
+    "react"
+  ],
+  "scripts": {
+    "start:react": "npm run start --workspace=react"
+  }
+}
