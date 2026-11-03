@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "workspaces": [
     "react",
-    "typescript"
+    "typescript",
+    "app"
   ],
   "scripts": {
-    "start:react": "npm run start --workspace=react"
+    "start:react": "npm run start --workspace=react",
+    "start:app": "npm run start --workspace=app"
   }
 }
