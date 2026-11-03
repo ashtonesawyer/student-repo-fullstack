@@ -2,7 +2,8 @@
   "name": "hw3",
   "version": "0.0.0",
   "workspaces": [
-    "react"
+    "react",
+    "typescript"
   ],
   "scripts": {
     "start:react": "npm run start --workspace=react"
