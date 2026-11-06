@@ -1,4 +1,18 @@
 extends layout 
 
+mixin species(species, characters)
+    .card 
+        .card-body 
+            h2.card-title= species
+            div.card-subtitle Character Count: #{characters.length}
+            .card-text 
+                ul 
+                    each c in characters 
+                        li= c.name
+
 block content
     h1 Species
+    .container.w-100
+        .row.row-cols-5.gap-2
+            each characters, s in species
+                +species(s, characters)

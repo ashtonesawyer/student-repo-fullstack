@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "start:react": "npm run start --workspace=react",
-    "start:app": "npm run start --workspace=app"
+    "start:app": "npm run start --workspace=app",
+    "dev:app": "npx nodemon --ext js,pug app/bin/www"
   }
 }
