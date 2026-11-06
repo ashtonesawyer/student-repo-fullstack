@@ -30,7 +30,9 @@ router.get('/', async function (req, res, next) {
     const results = [page1.results, ...pageRes].flatMap(
       (page) => page.results ?? [],
     );
-    const locations = Object.groupBy(results, (obj) => obj.type);
+    const locations = Object.groupBy(results, (obj) =>
+      obj.type ? obj.type : 'unknown',
+    );
 
     res.render('locations', { locations: locations });
   } catch {
