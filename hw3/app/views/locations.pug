@@ -1,4 +1,15 @@
 extends layout
 
+mixin location(type, locations)
+    .card   
+        .card-body 
+            h2.card-title= type
+            .card-text #{locations.length} locations
+
 block content 
     h1 Locations
+    .container 
+        .row
+            each l, type in locations
+                .col-md-3.col-sm-6.mb-4
+                    +location(type, l)
