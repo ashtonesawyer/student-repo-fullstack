@@ -2,22 +2,16 @@
 
 Intro:
 
-    Time to filter the data! In order to be flexible
-    we filter users using a number of criteria and
-    return only those matching all of the criteria.
-    We don't need Admins yet, we only filter Users.
+    As we introduced "type" to both User and Admin
+    it's now easier to distinguish between them.
+    Once object type checking logic was extracted
+    into separate functions isUser and isAdmin -
+    logPerson function got new type errors.
 
 Exercise:
 
-    Without duplicating type structures, modify
-    filterUsers function definition so that we can
-    pass only those criteria which are needed,
-    and not the whole User information as it is
-    required now according to typing.
-
-Higher difficulty bonus exercise:
-
-    Exclude "type" from filter criteria.
+    Figure out how to help TypeScript understand types in
+    this situation and apply necessary fixes.
 
 */
 
@@ -44,45 +38,21 @@ export const persons: Person[] = [
     age: 25,
     occupation: 'Chimney sweep',
   },
-  {
-    type: 'admin',
-    name: 'Jane Doe',
-    age: 32,
-    role: 'Administrator',
-  },
-  {
-    type: 'user',
-    name: 'Kate Müller',
-    age: 23,
-    occupation: 'Astronaut',
-  },
-  {
-    type: 'admin',
-    name: 'Bruce Willis',
-    age: 64,
-    role: 'World saver',
-  },
-  {
-    type: 'user',
-    name: 'Wilson',
-    age: 23,
-    occupation: 'Ball',
-  },
-  {
-    type: 'admin',
-    name: 'Agent Smith',
-    age: 23,
-    role: 'Administrator',
-  },
+  { type: 'admin', name: 'Jane Doe', age: 32, role: 'Administrator' },
+  { type: 'user', name: 'Kate Müller', age: 23, occupation: 'Astronaut' },
+  { type: 'admin', name: 'Bruce Willis', age: 64, role: 'World saver' },
 ];
 
-export const isAdmin = (person: Person): person is Admin =>
-  person.type === 'admin';
-export const isUser = (person: Person): person is User =>
-  person.type === 'user';
+export function isAdmin(person: Person): person is Admin {
+  return person.type === 'admin';
+}
+
+export function isUser(person: Person): person is User {
+  return person.type === 'user';
+}
 
 export function logPerson(person: Person) {
-  let additionalInformation = '';
+  let additionalInformation: string = '';
   if (isAdmin(person)) {
     additionalInformation = person.role;
   }
@@ -92,20 +62,10 @@ export function logPerson(person: Person) {
   console.log(` - ${person.name}, ${person.age}, ${additionalInformation}`);
 }
 
-export function filterUsers(
-  persons: Person[],
-  criteria: Partial<User>,
-): User[] {
-  return persons.filter(isUser).filter((user) => {
-    const criteriaKeys = Object.keys(criteria) as (keyof User)[];
-    return criteriaKeys.every((fieldName) => {
-      return user[fieldName] === criteria[fieldName];
-    });
-  });
-}
+console.log('Admins:');
+persons.filter(isAdmin).forEach(logPerson);
 
-console.log('Users of age 23:');
+console.log();
 
-filterUsers(persons, {
-  age: 23,
-}).forEach(logPerson);
+console.log('Users:');
+persons.filter(isUser).forEach(logPerson);

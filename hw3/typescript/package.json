@@ -2,9 +2,11 @@
   "name": "typescript-demo",
   "version": "0.0.0",
   "scripts": {
-    "start": "npx ts-node"
+    "start": "concurrently \"npx tsx exercise1.ts\" \"npx tsx exercise2.ts\" \"npx tsx exercise3.ts\" \"npx tsx exercise4.ts\" \"npx tsx exercise5.ts\" \"npx tsx exercise6.ts\" \"npx tsx exercise7.ts\" \"npx tsx exercise8.ts\""
   },
   "dependencies": {
+    "concurrently": "^10.0.6",
+    "tsx": "^4.23.15",
     "type-assertions": "^1.1.0"
   }
 }
