@@ -1,0 +1,15 @@
+{
+  "name": "hw3",
+  "version": "0.0.0",
+  "workspaces": [
+    "react",
+    "typescript",
+    "app"
+  ],
+  "scripts": {
+    "start:typescript": "npm run start --workspace=typescript",
+    "start:react": "npm run start --workspace=react",
+    "start:app": "npm run start --workspace=app",
+    "dev:app": "npx nodemon --ext js,pug app/bin/www"
+  }
+}

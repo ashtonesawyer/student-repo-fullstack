@@ -1,0 +1,23 @@
+header
+  nav.navbar.navbar-expand-md
+    .container
+      a.navbar-brand(href='/') Home
+
+      button.navbar-toggler(
+        type='button'
+        data-bs-toggle='collapse'
+        data-bs-target='#navbarNav'
+        aria-controls='navbarNav'
+        aria-expanded='false'
+        aria-label='Toggle navigation'
+      )
+        span.navbar-toggler-icon
+
+      #navbarNav.collapse.navbar-collapse
+        ul.navbar-nav.ms-auto
+          li.nav-item
+            a.nav-link(href='/characters') Characters
+          li.nav-item
+            a.nav-link(href='/species') Species
+          li.nav-item
+            a.nav-link(href='/locations') Locations

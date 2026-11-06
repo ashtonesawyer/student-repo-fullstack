@@ -1,0 +1,17 @@
+extends layout 
+
+mixin character(character)
+    .card 
+        img(src=character.image).card-img-top
+        .card-body
+            h2.card-title= character.name
+            div.card-text 
+                p Species: #{character.species}
+                p Status: #{character.status}
+
+block content
+    h1 Characters
+    .row 
+        each c  in characters 
+            .col-md-3.col-sm-6.mb-4
+                +character(c)
