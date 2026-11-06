@@ -11,8 +11,7 @@ mixin character(character)
 
 block content
     h1 Characters
-    .container
-        .row 
-            each c  in characters 
-                .col-md-3.col-sm-6.mb-4
-                    +character(c)
+    .row 
+        each c  in characters 
+            .col-md-3.col-sm-6.mb-4
+                +character(c)

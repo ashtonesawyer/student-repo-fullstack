@@ -12,7 +12,6 @@ mixin species(species, characters)
 
 block content
     h1 Species
-    .container.w-100
-        .row.row-cols-5.gap-2
-            each characters, s in species
-                +species(s, characters)
+    .row.row-cols-5.gap-2
+        each characters, s in species
+            +species(s, characters)
